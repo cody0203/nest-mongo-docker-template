@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  main:
+    image: nest-js-template
+    container_name: nestJsTemplate
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3000:3000
+    depends_on:
+      - db_mongo
+
+  db_mongo:
+    container_name: db_mongo
+    image: mongo:4.4
+    restart: always
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodata: {}

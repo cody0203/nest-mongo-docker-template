@@ -1,23 +1,6 @@
 version: '3.7'
 
 services:
-  main:
-    container_name: main
-    build:
-      context: .
-      target: development
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    restart: always
-    command: npm run start:dev
-    ports:
-      - 3000:3000
-    env_file:
-      - .env.development
-    depends_on:
-      - db_mongo
-
   db_mongo:
     container_name: db_mongo
     image: mongo:4.4
