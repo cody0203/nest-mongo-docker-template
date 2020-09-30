@@ -1,11 +1,15 @@
-FROM node:12.13-alpine
-WORKDIR /usr/src/app
-
-COPY package.json .
-RUN yarn install
-RUN yarn build
-
+# Using Node:10 Image Since it contains all the necessarity build tools required for dependencies with native build (node-gyp, python, gcc, g++, make)
+# First Stage : to install and build dependences
+FROM node:12.13-alpine as builder
+WORKDIR /app
+COPY ./package.json ./
+RUN npm install
 COPY . .
+RUN npm run build
 
+# Second Stage : Setup command to run your app
+FROM node:12.13-alpine
+WORKDIR /app
+COPY --from=builder /app ./
 EXPOSE 3000
-CMD [ "yarn", "start:prod" ]
+CMD ["npm", "run", "start:prod"]
