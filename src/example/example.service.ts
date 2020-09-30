@@ -5,7 +5,7 @@ export class ExampleService {
   constructor() {}
 
   sayHello() {
-    return 'Hello Nest!';
+    return 'Example route!';
   }
 
   guardExample() {

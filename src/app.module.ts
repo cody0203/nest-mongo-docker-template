@@ -3,6 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { ExampleModule } from './example/example.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 const ENV = process.env.NODE_ENV;
 
@@ -26,6 +28,8 @@ const ENV = process.env.NODE_ENV;
       inject: [ConfigService],
     }),
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {
   constructor() {
