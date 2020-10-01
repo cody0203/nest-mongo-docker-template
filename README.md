@@ -50,20 +50,20 @@ $ docker-compose -f ./docker-compose.production.yml up # run nest server and mon
 ## Running the app (only for developement)
 
 ```bash
-$ npm run start:dev
+$ yarn run start:dev
 ```
 
 ## Test
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn run test
 
 # e2e tests
-$ npm run test:e2e
+$ yarn run test:e2e
 
 # test coverage
-$ npm run test:cov
+$ yarn run test:cov
 ```
 
 ## Support
