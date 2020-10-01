@@ -27,14 +27,27 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Deploy with docker.
 
-## Installation
 
+# Installation
 ```bash
-$ npm install
+$ yarn install
+
 ```
 
-## Running the app
+## Docker
+
+```bash
+# development
+$ docker-compose -f ./docker-compose.yml up # run docker for mongodb
+
+# production
+$ docker build -t nest-js-template . # build docker image
+$ docker-compose -f ./docker-compose.production.yml up # run nest server and mongodb
+```
+
+## Running the app (only for developement)
 
 ```bash
 # development
@@ -42,9 +55,6 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
