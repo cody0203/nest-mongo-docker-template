@@ -50,10 +50,6 @@ $ docker-compose -f ./docker-compose.production.yml up # run nest server and mon
 ## Running the app (only for developement)
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
 $ npm run start:dev
 ```
 
